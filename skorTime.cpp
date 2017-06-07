@@ -32,11 +32,10 @@ void inputNama(){
 }
 
 void initWaktu(){
-	m=0;s=10;ms=10;
+	m=3;s=59;ms=10;
 }
 
-int WaktuMain(){
-	int timeout=9;
+void WaktuMain(){
 	ms=ms-1;
 	if(ms<=0&&s>0){
 		s=s-1;
@@ -47,9 +46,8 @@ int WaktuMain(){
 	} else if (ms<=0&&s<=0&&m<=0){
 		cleardevice();
 		outtextxy(posisi(9),posisi(11),"TIMEOUT");
-		return timeout;
 	}
-	
+
 	char arr[20];
 	sprintf(arr,"%d : %d  ", m,s);
 	outtextxy(posisi(25)+getUkur(),posisi(12),arr);
@@ -108,20 +106,15 @@ void urutSkor(){
 		dskor[i].skor=score;
 		i++;
 	} 
-	for (int c = 0 ; c < 10; c++)
-	  {
-	    for (int d = 0 ; d < 9; d++)
-	    {
-	      if (dskor[d].skor > dskor[d+1].skor) /* For decreasing order use < */
-	      {
-	        dtemp      = dskor[d];
-	        dskor[d]   = dskor[d+1];
-	        dskor[d+1] = dtemp;
-	      }
-	    }
-	  }
+	for(int j=0;j<10;j++){
+		if (dskor[j+1].skor>dskor[j].skor){
+			dtemp=dskor[j];
+			dskor[j]=dskor[j+1];
+			dskor[j+1]=dtemp;
+		}
+	}
 	fclose(in);
-	FILE *out=fopen("skortertinggi1.txt","w");
+	FILE *out=fopen("skortertinggi.txt","w");
 	for (int x=0;x<10;x++){
 	fprintf(out,"%s#%d\n",dskor[x].pemain,dskor[x].skor);
 	}

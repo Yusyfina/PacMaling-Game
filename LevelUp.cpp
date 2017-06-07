@@ -3,19 +3,10 @@
 #include "LayarPac.h"
 #include "ItemPac.h"
 
-struct GrafArray{
-	int X;
-	int Y;
-};
-
-GrafArray GAMatrik[15];
-
 void levelup2(){
 	short int a,b,i,j,x;
 	pos Q;
 	short int c = pengali();
-	
-	GrafArray NodeN;
 	
 	//pertama-tama isi array di 0-kan dulu
 	for(i=1;i<22;i++){
@@ -429,9 +420,6 @@ void levelup2(){
 void levelup3(){
 	int a,b,i,j,x;
 	pos Q;
-	
-	GrafArray NodeN;
-	
 	int c = pengali();
 	
 	//pertama-tama isi array di 0-kan dulu
@@ -859,83 +847,32 @@ void levelup3(){
 		setPeta(Q,1);
 	}
 //-----------------------end
-	
-	/*	Root	*/
-	NodeN.X = 11;
-	NodeN.Y = 1;
-	GAMatrik[0] = NodeN;
-	
-	/* Anak Kiri root */
-	NodeN.X = 9;
-	NodeN.Y = 1;
-	GAMatrik[1] = NodeN;
 
-	/* Anak Kanan root */
-	NodeN.X = 13;
-	NodeN.Y = 1;
-	GAMatrik[2] = NodeN;
-
-	/*	LEVEL 3		*/
-	/* 	Anak Kanan	*/
-	NodeN.X = 1;
-	NodeN.Y = 1;
-	GAMatrik[3] = NodeN;
-	
-	/* Anak Kiri */
-	NodeN.X = 9;
-	NodeN.Y = 12;
-	GAMatrik[4] = NodeN;
-	
-	/* Anak Kanan */
-	NodeN.X = 13;
-	NodeN.Y = 12;
-	GAMatrik[5] = NodeN;
-	
-	/* Anak Kanan */
-	NodeN.X = 21;
-	NodeN.Y = 1;
-	GAMatrik[6] = NodeN;
-
-	/*	LEVEL 4		*/
-	/* 	Anak Kanan	*/
-	NodeN.X = 7;
-	NodeN.Y = 1;
-	GAMatrik[7] = NodeN;
-	
-	/* Anak Kiri */
-	NodeN.X = 5;
-	NodeN.Y = 5;
-	GAMatrik[8] = NodeN;
-	
-	/* Anak Kanan */
-	NodeN.X = 3;
-	NodeN.Y = 12;
-	GAMatrik[9] = NodeN;
-	
-	/* Anak Kanan */
-	NodeN.X = 9;
-	NodeN.Y = 15;
-	GAMatrik[10] = NodeN;
-
-	/* 	Anak Kanan	*/
-	NodeN.X = 21;
-	NodeN.Y = 12;
-	GAMatrik[11] = NodeN;
-	
-	/* Anak Kiri */
-	NodeN.X = 13;
-	NodeN.Y = 15;
-	GAMatrik[12] = NodeN;
-	
-	/* Anak Kanan */
-	NodeN.X = 17;
-	NodeN.Y = 5;
-	GAMatrik[13] = NodeN;
-	
-	/* Anak Kanan */
-	NodeN.X = 21;
-	NodeN.Y = 7;
-	GAMatrik[14] = NodeN;
-
+	/*for(i=0;i<23;i++){
+		for(j=0;j<17;j++){
+			a=posisi(j);
+			b=posisi(i);
+	//		d=posisi(22-i);
+			if(cekPeta(i,j,1)){
+			//	setfillstyle(INTERLEAVE_FILL,BLUE);
+				readimagefile("a.bmp",b-c,a-c,b+c,a+c);
+			//	setfillstyle(INTERLEAVE_FILL,BLUE);
+			//	rectangle(d-c,a-c,d+c,a+c);
+			}
+			else if(cekPeta(i,j,0)){
+				coin(b,a);
+		//		jmlItem=jmlItem+1;
+			}
+			else if(cekPeta(i,j,2)){
+				moneybag(b,a);
+			}
+			else if(cekPeta(i,j,3)){
+				beer(b,a);
+			}
+			else if(cekPeta(i,j,4)){
+				randomitem();
+			}
+		}				
+	}*/
 	tembok(3);
 }

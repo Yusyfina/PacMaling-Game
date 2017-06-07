@@ -17,7 +17,7 @@ void majuPacman(int input);
 
 bool cekNyawa(pos G, pos H, pos I);
 
-void makanMusuh(int totItem);
+void makanMusuh(int *totItem);
 
 void boolmusuh();
 
@@ -32,5 +32,7 @@ void randomitem();
 void cetakMusuh();
 
 void cetakPacman();
+
+void musuhmencar();
 
 #endif

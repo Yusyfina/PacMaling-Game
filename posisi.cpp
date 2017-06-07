@@ -4,7 +4,7 @@
 #include "ItemPac.h"
 #include "sktime.h"
 #include "musik.h"
-
+#include <conio.h>
 pos P,M,N;
 logika Log;
 logika LogD;
@@ -71,40 +71,55 @@ bool cekNyawa(pos G, pos H, pos I){
 	else return (false);
 }
 
-void makanMusuh(int totItem){
+void makanMusuh(int *totitem){
 	
 	if(cekPeta(P.x,P.y,0)){
 		setPeta(P,9);
 		tambahSkor(5);			//nilai koin=5, money bag = 10, 10, 10;
 		musikmakan();
-		totItem--;
+		*totitem=*totitem-1;
 	}
 	else if (cekPeta(P.x,P.y,2)){
 		setPeta(P,9);
 		tambahSkor(10);
 		musikmakan();
-		totItem--;
+		*totitem=*totitem-1;
 	}
 	else if(cekPeta(P.x,P.y,3)){//pacman makan beer
 		setPeta(P,9);
 		P.powerUp=30;//pacman power up, sehingga bisa makan musuh
 		tambahSkor(10);
 		musikmakan();
-		totItem--;
+		*totitem=*totitem-1;
 	}
 	else{
 		musikpac();
 	}
 		
 	if(cekNyawa(P,M,N)){
-		if(P.powerUp<1) nyawaP--;
+		if(P.powerUp<1){
+			nyawaP--;
+			setPacman(11,14);
+			hapusmus();
+			setMusuh(1,11,10);
+			setMusuh(2,12,10);
+			cetakPacman();
+			cetakMusuh();
+			getch();
+			
+		} 
 		else {
 			if(P.x==M.x&&P.y==M.y){
+				cetakPacman();
 				M.x=12;M.y=10;
+				cetakMusuh();
+				getch();
 			}	
 			if(P.x==N.x&&P.y==N.y){
-				
+				cetakPacman();
 				N.x=11;N.y=10;
+				cetakMusuh();
+				getch();
 			}
 			tambahSkor(10);
 			hapusmus();
@@ -231,5 +246,38 @@ void cetakMusuh(){
 }
 
 void cetakPacman(){
-	pacman(72,&P);
+	pacman(77,&P);
+}
+
+void musuhmencar()
+{
+	if(P.x<=M.x) Log.kiri = true;
+	else Log.kiri = false;	
+	
+	if(P.y<=M.y) Log.atas = true;
+	else Log.atas = false;
+	
+	if(P.y>=N.y) LogD.atas = false;
+	else LogD.atas = true;
+	
+	if(P.x>=N.x) LogD.kiri = false;
+	else LogD.kiri = true;
+
+
+	if((Log.kiri == true)&&(!cekPeta(M.x-1,M.y,1))) M.x = M.x + 1;
+	else if((Log.kiri == false)&&(!cekPeta(M.x+1,M.y,1))) M.x = M.x - 1;
+	if((Log.atas == false)&&(!cekPeta(M.x,M.y+1,1))) M.y = M.y - 1;
+	else if((Log.atas == true)&&(!cekPeta(M.x,M.y-1,1))) M.y = M.y + 1;
+	
+	if(M.y>15) M.y = 0;
+	if(M.y<1) M.y = 16;
+	
+	if(((LogD.kiri == false)&&(!cekPeta(N.x+1,N.y,1)))&&(abs(M.x-N.x)!=5)) N.x = N.x - 1;
+	else if(((LogD.kiri == true)&&(!cekPeta(N.x-1,N.y,1)))&&(abs(N.x-M.x)!=5)) N.x = N.x + 1;
+	if(((LogD.atas == true)&&(!cekPeta(N.x,N.y-1,1)))&&(abs(N.y-M.y)!=5)) N.y = N.y + 1;
+	else if(((LogD.atas == false)&&(!cekPeta(N.x,N.y+1,1)))&&(abs(N.y-M.y)!=5)) N.y = N.y - 1;
+	
+	if(N.y>15) N.y = 0;
+	if(N.y<1) N.y = 16;
+	
 }

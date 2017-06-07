@@ -8,13 +8,13 @@
 #include "LevelUp.h"
 #include "posPemain.h"
 #include "sktime.h"
+//#include "skorTime.cpp"
 
 int totItem=0;//jumlah total item yang tersisa, tiap level berbeda
 
 void arenaMain(int *curLevel){
-	int in, oh, skorA,timeout;
+	int in, oh, skorA;
 	initWaktu();
-
 	while(1){
 		if(kbhit()){
 			in=getch();// inputan dari keyboard, berupa arrow (arah)
@@ -22,16 +22,21 @@ void arenaMain(int *curLevel){
 		if(in==27) break; 
 		
 		hapusmus();
+		
 		majuPacman(in);
-		timeout=WaktuMain();
-	//	randomitem();
 	
 		if(oh<12) boolmusuh();
 	
 		if(oh>23) oh = 0;
-		
-		musuhmikir();
+		pos P=getPacman();
+		if(P.powerUp<1){
+		musuhmikir();}
 		if(oh%2==0) musuhmikirdua();
+		else{
+			musuhmencar();
+		}
+		
+		
 		
 		cetakMusuh();
 		
@@ -39,11 +44,13 @@ void arenaMain(int *curLevel){
 		
 		TampilSkor(getSkor());
 
+		WaktuMain();
+		
 		garisNyawa(getNyawa());
 	
 		delay(120);	
 		
-		if(totItem<1||getNyawa()<1||timeout==9){
+		if(totItem<1||getNyawa()<1){
 			break;
 		}
 
@@ -51,13 +58,13 @@ void arenaMain(int *curLevel){
 	if(totItem<1){
 		*curLevel = *curLevel + 1;
 		MenangKalah(true);
-		musikTTangan();
 		tulisSkor();
+		musikTTangan();
 	}
 	else {
 	 	MenangKalah(false);
-		musikoot();
 		tulisSkor();
+		musikoot();
 		getch();
 	}
 }
@@ -68,7 +75,7 @@ int main()
 	SetConsoleTitle("PAC-MALING");
 	pembukaan();
 	
-		int uk, curLevel=1, lastLevel=1;
+	int uk, curLevel=1, lastLevel=1;
 	bool isKlik, tbhLevel;
 
 	KotakMenuA();

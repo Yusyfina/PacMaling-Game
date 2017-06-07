@@ -106,6 +106,12 @@ void alokgambar(int x, int y){
 	ukuran = imagesize(posisikiri(P.x),posisikiri(P.y), posisikanan(P.x), posisikanan(P.y));
 	pbawah2 = malloc(ukuran);
 	getimage(posisikiri(P.x),posisikiri(P.y), posisikanan(P.x), posisikanan(P.y),pbawah2);
+//penjara
+//	readimagefile("hitam.bmp", posisikiri(P.x),posisikiri(P.y), posisikanan(P.x), posisikanan(P.y));
+//	ukuran = imagesize(posisikiri(P.x),posisikiri(P.y), posisikanan(P.x), posisikanan(P.y));
+//	hitam = malloc(ukuran);
+//	getimage(posisikiri(P.x)+getUkur(),posisikiri(P.y), posisikanan(P.x)+getUkur(), posisikanan(P.y),hitam);
+
 //hapus
 	readimagefile("hitam.bmp", posisikiri(P.x),posisikiri(P.y), posisikanan(P.x), posisikanan(P.y));
 	ukuran = imagesize(posisikiri(P.x),posisikiri(P.y), posisikanan(P.x), posisikanan(P.y));
@@ -129,9 +135,9 @@ void musuh(pos M){
 	putimage(posisi(M.x)-c,posisi(M.y)-c,musuhna,COPY_PUT);
 }
 
-void pacman(int in, pos *P){
+void pacman(int in, pos *P){// in adalah inputan dari keyboard, P struct pacman
 	int c;
-	c=pengali()-2;
+	c=pengali()-2;//digunakan untuk ukuran pacman
 	switch(in){
 		case 77: //kanan
 			if(sudut==45){
@@ -225,14 +231,14 @@ void coin(int b, int a){
 
 void moneybag(int b, int a){
 	int  kons;
-	if(getUkur()!=9) kons=(getUkur()/2)-1;
+	if(getUkur()!=9) kons=(getUkur()/2)+1;
 	else kons=4;
 	readimagefile("money_bag.bmp",b-kons,a-kons,b+kons,a+kons);			
 }
 
 void beer(int b, int a){
 	int  kons;
-	if(getUkur()!=9) kons=(getUkur()/2)-1;
+	if(getUkur()!=9) kons=(getUkur()/2)+1;
 	else kons=4;
 	readimagefile("beer.bmp",b-kons,a-kons,b+kons,a+kons);
 }
