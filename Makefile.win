@@ -1,15 +1,15 @@
-# Project: PacmanSprite
+# Project: PacMaling
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = pacmanSprite.o musik.o PetaPac.o LayarPac.o ItemPAc.o menuawal.o LevelUp.o
-LINKOBJ  = pacmanSprite.o musik.o PetaPac.o LayarPac.o ItemPAc.o menuawal.o LevelUp.o
-LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -lbgi -lgdi32 -luser32 -lcomdlg32 -luuid -loleaut32 -lole32 -lwinmm -m32 -pg
+OBJ      = application.o ItemPAc.o LayarPac.o LevelUp.o menuawal.o musik.o PetaPac.o posisi.o skorTime.o
+LINKOBJ  = application.o ItemPAc.o LayarPac.o LevelUp.o menuawal.o musik.o PetaPac.o posisi.o skorTime.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib32" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib32" -static-libgcc -lbgi -lgdi32 -luser32 -lcomdlg32 -luuid -loleaut32 -lole32 -lwinmm -m32 -pg
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = PacmanSprite.exe
+BIN      = PacMaling.exe
 CXXFLAGS = $(CXXINCS) -m32 -pg
 CFLAGS   = $(INCS) -m32 -pg
 RM       = rm.exe -f
@@ -24,8 +24,20 @@ clean: clean-custom
 $(BIN): $(OBJ)
 	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
-pacmanSprite.o: pacmanSprite.cpp
-	$(CPP) -c pacmanSprite.cpp -o pacmanSprite.o $(CXXFLAGS)
+application.o: application.cpp
+	$(CPP) -c application.cpp -o application.o $(CXXFLAGS)
+
+ItemPAc.o: ItemPAc.cpp
+	$(CPP) -c ItemPAc.cpp -o ItemPAc.o $(CXXFLAGS)
+
+LayarPac.o: LayarPac.cpp
+	$(CPP) -c LayarPac.cpp -o LayarPac.o $(CXXFLAGS)
+
+LevelUp.o: LevelUp.cpp
+	$(CPP) -c LevelUp.cpp -o LevelUp.o $(CXXFLAGS)
+
+menuawal.o: menuawal.cpp
+	$(CPP) -c menuawal.cpp -o menuawal.o $(CXXFLAGS)
 
 musik.o: musik.cpp
 	$(CPP) -c musik.cpp -o musik.o $(CXXFLAGS)
@@ -33,14 +45,8 @@ musik.o: musik.cpp
 PetaPac.o: PetaPac.cpp
 	$(CPP) -c PetaPac.cpp -o PetaPac.o $(CXXFLAGS)
 
-LayarPac.o: LayarPac.cpp
-	$(CPP) -c LayarPac.cpp -o LayarPac.o $(CXXFLAGS)
+posisi.o: posisi.cpp
+	$(CPP) -c posisi.cpp -o posisi.o $(CXXFLAGS)
 
-ItemPAc.o: ItemPAc.cpp
-	$(CPP) -c ItemPAc.cpp -o ItemPAc.o $(CXXFLAGS)
-
-menuawal.o: menuawal.cpp
-	$(CPP) -c menuawal.cpp -o menuawal.o $(CXXFLAGS)
-
-LevelUp.o: LevelUp.cpp
-	$(CPP) -c LevelUp.cpp -o LevelUp.o $(CXXFLAGS)
+skorTime.o: skorTime.cpp
+	$(CPP) -c skorTime.cpp -o skorTime.o $(CXXFLAGS)

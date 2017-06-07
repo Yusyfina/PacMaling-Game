@@ -7,7 +7,7 @@
 
 #include "LayarPac.h"
 
-int panjang, lebar, ukur; //var ukur dibuat oleh Faiz
+int panjang, lebar, ukur; //var ukur dibuat oleh Faiz Abdussalam
 /*	panjang layar, lebar layar, dan var ukur untuk konstanta perhitungan posisi	*/
 
 void setPanjang(int x){

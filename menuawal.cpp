@@ -1,3 +1,6 @@
+#include <stdio.h>      /* printf, scanf, puts, NULL */
+#include <conio.h>		/* gotoxy*/
+#include <windows.h>	/* system,HANDLE */
 #include "menuawal.h"
 // modul-modul
 void SetColor(int ForgC)		//modul untuk mengatur color 
@@ -29,39 +32,58 @@ void pembukaan()
 {
 	int i;
 	system("cls");
-	system("Color 70");
+	system("Color 20");
 	SetColor(6);
-	for (i=0;i<=10;i++)
+	for (i=1;i<=10;i++)
 	{
-	gotoxy(i-1,1);   printf("  лллллллл    лллллл   лллллл  лллллл    лллл  лллллллл   лллл  лл  лллллл лллллллл");
-	gotoxy(19-i,2);  printf(" лл     лл   лл    лл  лл      лл  лл   лл лл  лл    лл   лл        лл  лл лл    лл");
-	gotoxy(i-1,3);   printf(" лл     лл   лл    лл  лл      лл   ллллл  лл  лл    лл   лл    лл  лл  лл лл      ");
-	gotoxy(19-i,4);  printf(" лл лллллл   лллллллл  лл      лл 	        лл  лллллллл   лл    лл  лл  лл лл      ");
-	gotoxy(i-1,5);   printf(" лл     	  лл    лл  лл      лл 	        лл  лл    лл   лл    лл  лл  лл лл  лллл");
-	gotoxy(19-i,6);  printf(" лл      	  лл    лл  лл  	лл          лл  лл    лл   лл    лл  лл  лл лл    лл");
-	gotoxy(i-1,7);   printf(" лл          лл    лл  лллллл  лл          лл  лл    лл   лл    лл  лл  лл лллллллл");
-		Sleep(100);
+		gotoxy(i-1,4);   printf(" ллллллллл    лллллл   лллллл  лллллл    лллл  лллллллл   лл         лл  лллллл лллллллл     ");
+		gotoxy(19-i,5);  printf(" лл     лл   лл    лл  лл      лл  лл   лл лл  лл    лл   лл         лл  лл  лл лл           ");
+		gotoxy(i-1,6);   printf(" лл     лл   лл    лл  лл      лл   ллллл  лл  лл    лл   лл         лл  лл  лл лл           ");
+		gotoxy(19-i,7);  printf(" ллллллллл   лллллллл  лл      лл          лл  лллллллл   лл         лл  лл  лл лл           ");
+		gotoxy(i-1,8);   printf(" лл          лл    лл  лл      лл          лл  лл    лл   лл         лл  лл  лл лл  лллл     ");
+		gotoxy(19-i,9);  printf(" лл          лл    лл  лл  	лл          лл  лл    лл   лл         лл  лл  лл лл    лл        ");
+		gotoxy(i-1,10);  printf(" лл          лл    лл  лллллл  лл          лл  лл    лл   ллллллллл  лл  лл  лл лллллллл     ");
+		Sleep(109);
+		if(i==3) system("Color 30");
+		else if(i==5) system("Color 50");
+		else if(i==8) system("Color 60");
 	}
-	gotoxy(9,8);
+	system("Color 80");
 	SetColor(4);
-	printf("\n\n\n");
-	printf("\tЩЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЛ\n");
-	printf("\tК                                                               К\n");
-	printf("\tШЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭЭМ\n");
-	printf("		           	now loading . . .	                          	\n");
-	SetColor(11);
-	for (i=1;i<=63;i++)
-	{
-		gotoxy(8+i,12);printf("%c\n\n\n\n\n\n\n\n\n\n",219);
-		Sleep(35);
+	for(i=1;i<=10;i++)	{		
+		SetColor(4);
+		gotoxy(21-i,19); printf(" лл   лл  ллллллл  лл    лл ллллллл лл ллллллл  ллллллл  лллллл лл    лл лллл лл   лл    ");
+		gotoxy(1+i,20);  printf(" лл  лл   лл       лл       лл         лл   лл  лл   лл  лл  лл  лл  лл  лл   лл  лл     ");
+		gotoxy(21-i,21); printf(" ллллл    ллллллл  лл       ллллллл    ллллллл  ллллллл  лл  лл   лллл   лллл ллллл      ");
+		gotoxy(1+i,22);	 printf(" лл  лл   лл       лл            лл    лл       лл  лл   лл  лл    лл    лл   лл  лл     ");
+		gotoxy(21-i,23); printf(" лл   лл  ллллллл  ллллл лл ллллллл лл лл       лл   лл  лллллл    лл    лллл лл   лл    ");
+		Sleep(99);
+		if(i==5) system("Color 70");
 	}
+	
+	Sleep(2*286);
+}
+
+void KotakMenuA(){
+	short int i;
+	SetColor(1);
+	gotoxy(10,10);  
+	printf("ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл\n");
+	for(i=0;i<7;i++){
+		gotoxy(10,11+i);
+		printf("лл                                                                                   лл\n");
+	}
+  	gotoxy(10,18);
+ 	printf("ллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллллл\n");
+
+    gotoxy(15,11); 
 }
 
 void penutupan()															//keluar program
 {
 	int i;
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
-	system("Color 70");
+	system("Color 30");
 	for(i=1;i<=10;i++)	{		
 		system("cls");
 		SetColor(4);
@@ -74,6 +96,9 @@ void penutupan()															//keluar program
 		gotoxy(21-i,14);	printf("    лл    лл         ллл      лллллллл            ллл           \n");
 		gotoxy(1+i,15);		printf("    лллллллл         ллл      лллллллл             лл           \n");
 		Sleep(50);
+		if(i==3) system("Color 50");
+		else if(i==5) system("Color 60");
+		else if(i==8) system("Color 70");
 	}
 
 	for(i=1;i<46;i++){

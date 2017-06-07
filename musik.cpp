@@ -1,3 +1,6 @@
+#include <windows.h>
+#include <mmsystem.h>
+#pragma comment(lib, "winmm.lib")
 #include "musik.h"
 
 void musikTTangan(){

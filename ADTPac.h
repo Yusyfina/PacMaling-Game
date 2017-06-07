@@ -13,6 +13,7 @@ typedef struct pos{
 	/* 	untuk posisi array pacman/musuh									*/
 	int x;
 	int y;
+	int powerUp;
 };
 
 typedef struct logika{

@@ -9,7 +9,6 @@
 
 #ifndef ItemPac_H
 #define ItemPac_H
-#include <graphics.h>
 #include "ADTPac.h"
 #include "LayarPac.h"
 
@@ -19,7 +18,7 @@ void MulaiAlokGambar(int x, int y);
 
 void SetSudut(int x);
 
-void pacman(int in, pos P);
+void pacman(int in, pos *P);
 
 /* 		Gerry Agustian		*/
 void musuh(pos M);
@@ -33,5 +32,23 @@ void beer(int b, int a);
 void hapus(pos P);
 
 void hapusran();
+
+void tembok(short int level);
+
+void MenangKalah(bool menang);
+
+void about();
+
+/* REZA DWI KURNIAWAN */
+
+void MenuUtama(bool &isKlik);
+
+int MenuLVL(int LastLevel);
+
+void TungguKlik();
+
+void garisNyawa(short int nyawa);
+
+void TampilSkor(short int Skor);
 
 #endif
