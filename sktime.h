@@ -8,7 +8,7 @@ void tambahSkor(int poin);
 
 void initWaktu();
 
-void WaktuMain();
+int WaktuMain();
 
 void tulisSkor();
 

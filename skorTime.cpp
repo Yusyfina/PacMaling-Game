@@ -32,10 +32,10 @@ void inputNama(){
 }
 
 void initWaktu(){
-	m=3;s=59;ms=10;
+	m=0;s=59;ms=10;
 }
 
-void WaktuMain(){
+int WaktuMain(){
 	ms=ms-1;
 	if(ms<=0&&s>0){
 		s=s-1;
@@ -44,13 +44,13 @@ void WaktuMain(){
 		s=59;
 		m=m-1;
 	} else if (ms<=0&&s<=0&&m<=0){
-		cleardevice();
-		outtextxy(posisi(9),posisi(11),"TIMEOUT");
+		return 2;
 	}
 
 	char arr[20];
 	sprintf(arr,"%d : %d  ", m,s);
 	outtextxy(posisi(25)+getUkur(),posisi(12),arr);
+	return 10;
 }
 
 
