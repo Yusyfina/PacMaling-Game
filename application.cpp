@@ -12,17 +12,18 @@
 int totItem=0;//jumlah total item yang tersisa, tiap level berbeda
 
 void arenaMain(int *curLevel){
-	int in, oh, skorA;
+	int in, oh, skorA,timeout;
 	initWaktu();
 
 	while(1){
 		if(kbhit()){
-			in=getch();
+			in=getch();// inputan dari keyboard, berupa arrow (arah)
 		}
 		if(in==27) break; 
 		
 		hapusmus();
 		majuPacman(in);
+		timeout=WaktuMain();
 	//	randomitem();
 	
 		if(oh<12) boolmusuh();
@@ -34,7 +35,7 @@ void arenaMain(int *curLevel){
 		
 		cetakMusuh();
 		
-		makanMusuh(totItem);
+		makanMusuh(&totItem);
 		
 		TampilSkor(getSkor());
 
@@ -42,7 +43,7 @@ void arenaMain(int *curLevel){
 	
 		delay(120);	
 		
-		if(totItem<1||getNyawa()<1){
+		if(totItem<1||getNyawa()<1||timeout==9){
 			break;
 		}
 
@@ -56,6 +57,7 @@ void arenaMain(int *curLevel){
 	else {
 	 	MenangKalah(false);
 		musikoot();
+		tulisSkor();
 		getch();
 	}
 }
@@ -66,7 +68,7 @@ int main()
 	SetConsoleTitle("PAC-MALING");
 	pembukaan();
 	
-	int uk, curLevel=1, lastLevel=1;
+		int uk, curLevel=1, lastLevel=1;
 	bool isKlik, tbhLevel;
 
 	KotakMenuA();
@@ -113,7 +115,9 @@ int main()
 				tembok(1);
 				setMusuh(1,11,10);
 				setMusuh(2,12,10);
+				
 				totItem=185;
+				
 				outtextxy(posisi(8),posisi(10),"LEVEL 1, Press any button ...!");
 				cetakMusuh();
 				cetakPacman();
@@ -127,7 +131,9 @@ int main()
 				levelup2();
 				setMusuh(1,9,3);
 				setMusuh(2,13,5);
+	
 				totItem=183;
+	
 				cetakMusuh();
 				cetakPacman();
 				outtextxy(posisi(8),posisi(10),"LEVEL 2, Press any button ...!");
