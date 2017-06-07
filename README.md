@@ -1,16 +1,15 @@
 ## Synopsis
 
-Game ini dibuat dengan compiler Dev C++ dan library graphics.h
-Game Pacman ini ada tiga level
+Pacmaling : Berusaha kumpulkan semua item dan hindari hantu polisi
 
 ## Contributors
 
-1. Mufid Jamaluddin
-2. Faiz Abdussalam
-3. Gerry Agustian
-4. Reza Dwi Kurniawan
+1. Mufid Jamaluddin (https://github.com/MufidJamaluddin)
+2. Faiz Abdussalam (https://github.com/fazzabd)
+3. Gerry Agustian 
+4. Reza Dwi Kurniawan (https://github.com/rezadwikurniawan)
 5. Jeremia Geraldi
 
 ## License
 
-License by Politeknik Negeri Bandung
+© Contributors, Student of Politeknik Negeri Bandung
