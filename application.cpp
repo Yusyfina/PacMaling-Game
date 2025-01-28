@@ -36,7 +36,7 @@ void arenaMain(int *curLevel){
 		
 		cetakMusuh();
 		
-		makanMusuh(totItem);
+		makanMusuh(&totItem);
 		
 		TampilSkor(getSkor());
 
